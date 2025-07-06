@@ -21,6 +21,7 @@ const projectDetails = {
       'A responsive and user-friendly roommate-finding platform designed for students and working professionals. It allows users to post and search for roommate listings with real-time updates, secure authentication, and modern UI components.',
     live: 'https://roommate-search-cea35.web.app/',
     github: 'https://github.com/Shakib-cse/roommate-search-client',
+    github_server: 'https://github.com/Shakib-cse/roommate-search-server',
     challenges: [
       'Implementing real-time data synchronization using Firebase Firestore.',
       'Managing form validation and update modals with dynamic user feedback.',
@@ -53,6 +54,7 @@ const projectDetails = {
       'E-Bikolpo is a community-driven platform where users can share product boycott queries and recommend ethical or alternative products. The platform includes real-time updates, authentication, query tracking, and user-based recommendations to promote informed purchasing decisions.',
     live: 'https://e-bikolpo.web.app/',
     github: 'https://github.com/Shakib-cse/E-Bikolpo-client',
+    github_server: 'https://github.com/Shakib-cse/E-Bikolpo-server',
     challenges: [
       'Designing a scalable query-recommendation structure with nested data.',
       'Implementing JWT authentication and protecting private API routes.',
@@ -95,17 +97,15 @@ const projectDetails = {
   }
 };
 
-
 const ProjectDetails = () => {
   const { id } = useParams();
-  console.log(id);
   const project = projectDetails[id];
 
   if (!project) {
     return (
       <div className="text-center py-20">
         <h2 className="text-2xl font-semibold text-red-500">Project Not Found</h2>
-        <Link to="/" className="text-[#4300FF] hover:underline mt-4 block">
+        <Link to="/" className="text-[#4300FF] hover:underline mt-4 inline-block">
           ← Go Back Home
         </Link>
       </div>
@@ -113,63 +113,90 @@ const ProjectDetails = () => {
   }
 
   return (
-    <section className="py-16 px-6 mx-auto bg-[#F9FAFB] shadow-md">
-      <h1 className="text-4xl font-bold mb-6 text-[#4300FF] text-center">{project.title}</h1>
+    <section className="py-16 px-6 bg-[#F9FAFB] text-[#111827] min-h-screen">
+      <div className="max-w-4xl mx-auto bg-white p-8 shadow-lg rounded-xl border border-gray-200">
+        <h1 className="text-4xl font-bold text-center text-[#4300FF] mb-8">{project.title}</h1>
 
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold text-[#111827] mb-2">Tech Stack</h2>
-        <ul className="flex flex-wrap gap-2">
-          {project.stack.map((tech, index) => (
-            <li
-              key={index}
-              className="bg-[#4300FF] text-white px-3 py-1 rounded-full text-sm"
-            >
-              {tech}
-            </li>
-          ))}
-        </ul>
-      </div>
+        {/* Tech Stack */}
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold mb-2 text-[#111827]">Tech Stack</h2>
+          <div className="flex flex-wrap gap-2">
+            {project.stack.map((tech, index) => (
+              <span
+                key={index}
+                className="bg-[#4300FF] text-white px-3 py-1 rounded-full text-sm"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
 
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold text-[#111827] mb-2">Description</h2>
-        <p className="text-gray-700">{project.description}</p>
-      </div>
+        {/* Description */}
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold mb-2 text-[#111827]">Description</h2>
+          <p className="text-gray-700 leading-relaxed">{project.description}</p>
+        </div>
 
-      <div className="mb-6 space-x-4">
-        <a
-          href={project.live}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-[#4300FF] text-white px-4 py-2 rounded hover:bg-[#2e00cc] transition mb-1"
-        >
-          🔗 Live Site
-        </a>
-        <a
-          href={project.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition mb-1"
-        >
-          💻 GitHub (Client)
-        </a>
-      </div>
+        {/* Buttons */}
+        <div className="flex flex-wrap gap-4 mb-8">
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#4300FF] text-white px-5 py-2 rounded-md shadow hover:bg-[#2E00CC] transition"
+          >
+            🔗 Live Site
+          </a>
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gray-800 text-white px-5 py-2 rounded-md shadow hover:bg-gray-700 transition"
+          >
+            💻 GitHub Client Repository
+          </a>
+          {project.github_server && (
+             <a
+            href={project.github_server}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gray-800 text-white px-5 py-2 rounded-md shadow hover:bg-gray-700 transition"
+          >
+            💻 GitHub Server Repository
+          </a>
+          )}
+        </div>
 
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold text-[#111827] mb-2">Challenges Faced</h2>
-        <ul className="list-disc list-inside text-gray-700 space-y-1">
-          {project.challenges.map((challenge, idx) => (
-            <li key={idx}>{challenge}</li>
-          ))}
-        </ul>
-      </div>
+        {/* Challenges */}
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold mb-2 text-[#111827]">Challenges Faced</h2>
+          <ul className="list-disc list-inside space-y-1 text-gray-700">
+            {project.challenges.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ul>
+        </div>
 
-      <div>
-        <h2 className="text-xl font-semibold text-[#111827] mb-2">Potential Improvements</h2>
-        <ul className="list-disc list-inside text-gray-700 space-y-1">
-          {project.improvements.map((item, idx) => (
-            <li key={idx}>{item}</li>
-          ))}
-        </ul>
+        {/* Improvements */}
+        <div>
+          <h2 className="text-xl font-semibold mb-2 text-[#111827]">Potential Improvements</h2>
+          <ul className="list-disc list-inside space-y-1 text-gray-700">
+            {project.improvements.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Back Link */}
+        <div className="mt-10 text-center">
+          <Link
+            to="/#projects"
+            className="text-[#4300FF] hover:underline font-medium transition"
+          >
+            ← Back to Projects
+          </Link>
+        </div>
       </div>
     </section>
   );

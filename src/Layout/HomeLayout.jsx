@@ -10,6 +10,7 @@ import Contact from '../components/Contact';
 import { Outlet } from 'react-router';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import VantaBackground from '../components/VantaBackground';
 
 
 const HomeLayout = () => {
@@ -27,7 +28,8 @@ const HomeLayout = () => {
             <header id='home'>
                 <Header />
             </header>
-           <main className="bg-gradient-to-b from-[#acb3c6] via-[#E6ECFF] to-white">
+             <VantaBackground />
+           <main className="relative z-10">
   <Introduction />
   <About />
   <Skills data-aos="fade-up" data-aos-delay="300"/>

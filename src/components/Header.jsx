@@ -1,25 +1,31 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { Link } from 'react-scroll';
+import React from "react";
+import { Link } from "react-scroll";
 
 const Header = () => {
   const navItems = [
-    { name: 'Home', to: 'home' },
-    { name: 'About', to: 'xp' },
-    { name: 'Skills', to: 'skills' },
-    { name: 'Education', to: 'education' },
-    { name: 'Projects', to: 'projects' },
-    { name: 'Contact', to: 'contact' }
+    { name: "Home", to: "home" },
+    { name: "About", to: "xi" },
+    { name: "Skills", to: "skills" },
+    { name: "Education", to: "education" },
+    { name: "Projects", to: "xp" },
+    { name: "Contact", to: "contact" },
   ];
 
   return (
-    <header id='header' className="bg-[#4300FF] text-white shadow-md fixed w-full top-0 z-50">
+    <header
+      id="header"
+      className="bg-[#0f172a]/90 backdrop-blur-sm text-white shadow-md fixed w-full top-0 z-50"
+    >
       <div className="navbar max-w-7xl mx-auto px-4">
         {/* Logo */}
         <div className="navbar-start">
-          <NavLink to="/" className="text-3xl font-extrabold tracking-wide">
-            {'</>'}
-          </NavLink>
+          <a
+            href="/"
+            className="text-3xl font-extrabold tracking-wide text-[#4300FF]"
+            aria-label="Go to home"
+          >
+            {"</>"}
+          </a>
         </div>
 
         {/* Desktop Menu */}
@@ -30,15 +36,9 @@ const Header = () => {
                 <Link
                   to={item.to}
                   smooth={true}
-          duration={500}
-          offset={-70}
-                  className={({ isActive }) =>
-                    `px-3 py-2 rounded-md text-sm font-medium transition duration-200 ${
-                      isActive
-                        ? 'bg-white text-[#4300FF]'
-                        : 'hover:bg-white hover:text-[#4300FF]'
-                    }`
-                  }
+                  duration={500}
+                  offset={-70}
+                  className="px-4 py-2 rounded-md text-sm font-medium text-white hover:bg-white hover:text-[#4300FF] transition-colors duration-200 cursor-pointer"
                 >
                   {item.name}
                 </Link>
@@ -58,30 +58,21 @@ const Header = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-white text-[#4300FF] rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-white text-[#4300FF] rounded-box w-48"
             >
               {navItems.map((item) => (
                 <li key={item.to}>
                   <Link
-                  smooth={true}
-          duration={500}
-          offset={-70}
                     to={item.to}
-                    className={({ isActive }) =>
-                      `block px-4 py-2 rounded-md text-sm font-medium transition duration-200 ${
-                        isActive ? 'bg-[#4300FF] text-white' : 'hover:bg-[#4300FF] hover:text-white'
-                      }`
-                    }
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    className="block px-4 py-2 rounded-md text-sm font-medium transition duration-200 cursor-pointer hover:bg-[#4300FF] hover:text-white"
                   >
                     {item.name}
                   </Link>
