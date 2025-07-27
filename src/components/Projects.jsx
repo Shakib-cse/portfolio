@@ -2,6 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const projectData = [
+    {
+    id: 0,
+    title: 'MessMaster',
+    image: '/project0.png',
+    description:
+      'MessMaster is a MERN stack-based hostel meal management system with separate admin and user dashboards. Features include meal scheduling, reviews, payment tracking, authentication, and more. ',
+  },
   {
     id: 1,
     title: 'Roommate Search',

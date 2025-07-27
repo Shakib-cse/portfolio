@@ -2,6 +2,39 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 const projectDetails = {
+0: {
+  title: 'MessMaster',
+  stack: [
+    'React.js',
+    'Tailwind CSS',
+    'DaisyUI',
+    'Node.js',
+    'Express.js',
+    'MongoDB',
+    'Firebase Auth',
+    'React Router',
+    'ImageBB',
+    'React Hook Form',
+    'Chart.js'
+  ],
+  description:
+    'MessMaster is a modern hostel meal and member management platform built for students and hostel admins. It allows meal tracking, user reviews, membership upgrades, admin meal control, and full dashboard systems for users and admins.',
+  live: 'https://messmaster-b48cf.firebaseapp.com/',
+  github: 'https://github.com/Shakib-cse/MassMaster_Client',
+  github_server: 'https://github.com/Shakib-cse/MassMaster_Server',
+  challenges: [
+    'Designing separate admin and user dashboards with role-based access control.',
+    'Managing state and user sessions for meal interactions and review systems.',
+    'Handling secure image uploads and real-time status updates for meals and users.'
+  ],
+  improvements: [
+    'Implement Stripe or SSLCOMMERZ for secure membership payments.',
+    'Add analytics for daily/weekly/monthly meal tracking and reports.',
+    'Enable notifications for upcoming meals or membership expiry.',
+    'Introduce dark/light theme toggle for improved accessibility.'
+  ]
+},
+
   1: {
     title: 'Roommate Search',
     stack: [
