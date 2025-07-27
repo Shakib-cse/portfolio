@@ -24,8 +24,6 @@ A professional and responsive developer portfolio built with **React**, **Tailwi
 |------------|-----------------------|--------------------|
 | React.js   | Node.js (optional)    | Tailwind CSS       |
 | React Router | Express.js (optional)| AOS (Animate On Scroll) |
-| Firebase Auth | MongoDB (optional) | DaisyUI            |
-| Vite       | JWT Auth (for apps)   | Lottie, Swiper     |
 
 ---
 
@@ -47,7 +45,7 @@ A professional and responsive developer portfolio built with **React**, **Tailwi
 
 ## 🔗 Live Site
 
-👉 [Live Demo](homeless-self.surge.sh)
+👉 [Live Demo](homeless-self.surge.sh/)
 
 ---
 
